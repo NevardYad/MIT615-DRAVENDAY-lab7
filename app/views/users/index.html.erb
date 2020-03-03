@@ -1,0 +1,26 @@
+<% if user_signed_in? %>
+<p id="notice"><%= notice %></p>
+
+<h1>Users</h1>
+  <%= will_paginate @articles %>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email%></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% end %>
